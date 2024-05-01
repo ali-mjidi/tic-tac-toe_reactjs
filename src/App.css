@@ -1,0 +1,163 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo__image {
+    width: 70px;
+}
+
+.logo__title {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: default;
+}
+
+.header__buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.aboutBtn,
+.resetBtn {
+    width: 100px;
+    aspect-ratio: 3/1.2;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    background-color: var(--color-square);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.aboutBtn {
+    border-color: var(--color-x);
+}
+
+.resetBtn {
+    border-color: var(--color-o);
+}
+
+.aboutBtn:hover,
+.resetBtn:hover {
+    background-color: transparent;
+    /* font-weight: 500; */
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.col {
+    display: flex;
+    gap: 15px;
+}
+
+.square {
+    width: 100px;
+    aspect-ratio: 1;
+    font-size: 5rem;
+    border-radius: 1rem;
+    border: 1px solid #ffffff55;
+    background-color: var(--color-square);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.square:hover {
+    box-shadow: 0 0 20px 2px #ffffff33;
+}
+
+.square.x {
+    color: var(--color-x);
+}
+
+.square.o {
+    color: var(--color-o);
+}
+
+.square.x:hover,
+.square.o:hover {
+    border-width: 3px;
+}
+
+.square.x:hover {
+    border-color: var(--color-x);
+}
+.square.o:hover {
+    border-color: var(--color-o);
+}
+
+.playersInfo {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.player {
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    cursor: default;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+}
+
+.player__symbol {
+    font-size: 3rem;
+}
+
+.player__name {
+    display: flex;
+}
+
+.player__edit {
+    width: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    display: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.player__edit:hover {
+    transform: scale(1.2);
+}
+
+.player:hover .player__edit {
+    display: block;
+}
+
+.player1 .player__symbol {
+    color: var(--color-x);
+}
+
+.player2 .player__symbol {
+    color: var(--color-o);
+}
+
+.player1.active {
+    border-color: var(--color-x);
+}
+
+.player2.active {
+    border-color: var(--color-o);
+}

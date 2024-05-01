@@ -1,7 +1,15 @@
-*,
-*::before,
-*::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.body {
+    height: 100vh;
+    font-family: sans-serif;
+    color: white;
+    background: radial-gradient(#012e01, #010916, #010916);
+}
+
+#root {
+    height: 100%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
