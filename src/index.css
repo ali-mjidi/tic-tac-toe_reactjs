@@ -1,15 +1,11 @@
-.body {
-    height: 100vh;
-    font-family: sans-serif;
-    color: white;
-    background: radial-gradient(#012e01, #010916, #010916);
-}
-
 #root {
-    height: 100%;
+    height: 100vh;
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    font-family: sans-serif;
+    color: white;
+    background: radial-gradient(#012e01, #010916, #010916);
 }
