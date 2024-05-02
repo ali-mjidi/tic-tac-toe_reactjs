@@ -1,0 +1,45 @@
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.col {
+    display: flex;
+    gap: 15px;
+}
+
+.square {
+    width: 100px;
+    aspect-ratio: 1;
+    font-size: 5rem;
+    border-radius: 1rem;
+    border: 1px solid #ffffff55;
+    background-color: var(--color-square);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.square:hover {
+    box-shadow: 0 0 20px 2px #ffffff33;
+}
+
+.square.X {
+    color: var(--color-x);
+}
+
+.square.O {
+    color: var(--color-o);
+}
+
+.square.X:hover,
+.square.O:hover {
+    border-width: 3px;
+}
+
+.square.X:hover {
+    border-color: var(--color-x);
+}
+.square.O:hover {
+    border-color: var(--color-o);
+}

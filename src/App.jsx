@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import GameBoard from "./components/GameBoard";
 
 import "./App.css";
 import editIcon from "./assets/icons/edit.png";
@@ -8,49 +9,7 @@ function App() {
         <>
             <Header />
         
-            <div className="gameBoard">
-                <ol className="row">
-                    <li>
-                        <ol className="col">
-                            <li>
-                                <button className="square o">O</button>
-                            </li>
-                            <li>
-                                <button className="square"></button>
-                            </li>
-                            <li>
-                                <button className="square"></button>
-                            </li>
-                        </ol>
-                    </li>
-                    <li>
-                        <ol className="col">
-                            <li>
-                                <button className="square"></button>
-                            </li>
-                            <li>
-                                <button className="square x">X</button>
-                            </li>
-                            <li>
-                                <button className="square"></button>
-                            </li>
-                        </ol>
-                    </li>
-                    <li>
-                        <ol className="col">
-                            <li>
-                                <button className="square"></button>
-                            </li>
-                            <li>
-                                <button className="square"></button>
-                            </li>
-                            <li>
-                                <button className="square"></button>
-                            </li>
-                        </ol>
-                    </li>
-                </ol>
-            </div>
+            <GameBoard />
 
             <footer className="playersInfo">
                 <div className="player player1 ">
