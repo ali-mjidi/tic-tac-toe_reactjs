@@ -5,7 +5,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    gap: 5px;
     cursor: default;
     border-radius: 1rem;
     border: 1px solid transparent;
@@ -15,8 +14,27 @@
     font-size: 3rem;
 }
 
+.player__name,
+.changeNameInput {
+    width: 7rem;
+    height: 2rem;
+    margin-top: 5px;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
 .player__name {
-    display: flex;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+}
+
+.changeNameInput {
+    border-radius: calc(1rem / 2);
+    outline: none;
+    animation: 1s infinite alternate blinker;
+    background-color: transparent;
 }
 
 .player__edit {
@@ -27,6 +45,10 @@
     display: none;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.editing {
+    display: block;
 }
 
 .player__edit:hover {
@@ -51,4 +73,16 @@
 
 .player.O.active {
     border-color: var(--color-o);
+}
+
+@keyframes blinker {
+    0% {
+        border-color: #fff5;
+        color: #fff;
+    }
+
+    100% {
+        border-color: #fff;
+        color: #fff5;
+    }
 }
