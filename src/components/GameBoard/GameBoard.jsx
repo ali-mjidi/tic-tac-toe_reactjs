@@ -1,25 +1,16 @@
-import { useState } from "react";
-
 import "./style.css";
 
-const initialBoard = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-];
-
-function GameBoard({ currentPlayer: player, setPlayer }) {
-    const [board, setBoard] = useState(initialBoard);
+function GameBoard({ gameLogs, changeLogs, gameBoard }) {
+    let player = gameLogs[0]?.player || "X";
 
     function togglePlayer() {
-        setPlayer(prevPlayer => (prevPlayer === "X" ? "O" : "X"));
+        player = player === "X" ? "O" : "X";
     }
 
     function squareHandler(rowIndex, colIndex) {
-        setBoard(prevBoard => {
-            const newBoard = [...prevBoard.map(innerArray => [...innerArray])];
-            newBoard[rowIndex][colIndex] = player;
-            return newBoard;
+        changeLogs(oldLogs => {
+            const newLog = [{ player, square: { row: rowIndex, col: colIndex } }, ...oldLogs];
+            return newLog;
         });
 
         togglePlayer();
@@ -28,7 +19,7 @@ function GameBoard({ currentPlayer: player, setPlayer }) {
     return (
         <div className="gameBoard">
             <ol className="row">
-                {board.map((row, rowIndex) => (
+                {gameBoard.map((row, rowIndex) => (
                     <li key={rowIndex}>
                         <ol className="col">
                             {row.map((col, colIndex) => (
@@ -36,7 +27,7 @@ function GameBoard({ currentPlayer: player, setPlayer }) {
                                     <button
                                         className={`square ${col || ""}`}
                                         onClick={() => squareHandler(rowIndex, colIndex)}
-                                        disabled={Boolean(col)} >
+                                        disabled={Boolean(col)}>
                                         {col}
                                     </button>
                                 </li>

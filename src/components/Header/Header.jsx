@@ -1,6 +1,6 @@
 import "./style.css";
 
-function Header() {
+function Header({ onReset }) {
     return (
         <header className="header">
             <div className="header__logo logo">
@@ -12,7 +12,7 @@ function Header() {
             </div>
             <div className="header__buttons">
                 <button className="aboutBtn">About</button>
-                <button className="resetBtn">Reset</button>
+                <button className="resetBtn" onClick={onReset}>Reset</button>
             </div>
         </header>
     );
