@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./style.css";
 
 const initialBoard = [
@@ -20,6 +21,7 @@ function GameBoard({ currentPlayer: player, setPlayer }) {
             newBoard[rowIndex][colIndex] = player;
             return newBoard;
         });
+
         togglePlayer();
     }
 
@@ -33,7 +35,8 @@ function GameBoard({ currentPlayer: player, setPlayer }) {
                                 <li key={colIndex}>
                                     <button
                                         className={`square ${col || ""}`}
-                                        onClick={() => squareHandler(rowIndex, colIndex)}>
+                                        onClick={() => squareHandler(rowIndex, colIndex)}
+                                        disabled={Boolean(col)} >
                                         {col}
                                     </button>
                                 </li>
