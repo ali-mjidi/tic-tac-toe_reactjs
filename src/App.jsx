@@ -1,5 +1,5 @@
-import Header from "./components/Header";
-import GameBoard from "./components/GameBoard";
+import Header from "./components/Header/Header";
+import GameBoard from "./components/GameBoard/GameBoard";
 
 import "./App.css";
 import editIcon from "./assets/icons/edit.png";
