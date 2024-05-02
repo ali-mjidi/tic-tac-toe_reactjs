@@ -1,24 +1,13 @@
-import editIcon from "./assets/icons/edit.png";
+import Header from "./components/Header";
 
 import "./App.css";
+import editIcon from "./assets/icons/edit.png";
 
 function App() {
     return (
         <>
-            <header className="header">
-                <div className="header__logo logo">
-                    <img src="logo.png" alt="tic-tac-toe logo" className="logo__image" />
-                    <h1 className="logo__title">
-                        tic tac toe <br />
-                        (XO) game
-                    </h1>
-                </div>
-                <div className="header__buttons">
-                    <button className="aboutBtn">About</button>
-                    <button className="resetBtn">Reset</button>
-                </div>
-            </header>
-
+            <Header />
+        
             <div className="gameBoard">
                 <ol className="row">
                     <li>
@@ -68,14 +57,14 @@ function App() {
                     <span className="player__symbol">X</span>
                     <span className="player__name">
                         Player 1
-                        <img className="player__edit" src={editIcon} alt="" />
+                        <img className="player__edit" src={editIcon} />
                     </span>
                 </div>
                 <div className="player player2 active">
                     <span className="player__symbol">O</span>
                     <span className="player__name">
                         Player 2
-                        <img className="player__edit" src={editIcon} alt="" />
+                        <img className="player__edit" src={editIcon} />
                     </span>
                 </div>
             </footer>

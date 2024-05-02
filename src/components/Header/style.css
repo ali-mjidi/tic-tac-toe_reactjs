@@ -1,0 +1,56 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo__image {
+    width: 70px;
+}
+
+.logo__title {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: default;
+}
+
+.header__buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.aboutBtn,
+.resetBtn {
+    width: 100px;
+    aspect-ratio: 3/1.2;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    background-color: var(--color-square);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.aboutBtn {
+    border-color: var(--color-x);
+}
+
+.resetBtn {
+    border-color: var(--color-o);
+}
+
+.aboutBtn:hover,
+.resetBtn:hover {
+    background-color: transparent;
+    /* font-weight: 500; */
+}
