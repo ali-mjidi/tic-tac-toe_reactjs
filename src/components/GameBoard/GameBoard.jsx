@@ -7,9 +7,8 @@ const initialBoard = [
     [null, null, null],
 ];
 
-function GameBoard() {
+function GameBoard({ currentPlayer: player, setPlayer }) {
     const [board, setBoard] = useState(initialBoard);
-    const [player, setPlayer] = useState("X");
 
     function togglePlayer() {
         setPlayer(prevPlayer => (prevPlayer === "X" ? "O" : "X"));
