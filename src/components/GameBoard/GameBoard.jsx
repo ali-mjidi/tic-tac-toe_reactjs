@@ -9,13 +9,19 @@ const initialBoard = [
 
 function GameBoard() {
     const [board, setBoard] = useState(initialBoard);
+    const [player, setPlayer] = useState("X");
+
+    function togglePlayer() {
+        setPlayer(prevPlayer => (prevPlayer === "X" ? "O" : "X"));
+    }
 
     function squareHandler(rowIndex, colIndex) {
         setBoard(prevBoard => {
             const newBoard = [...prevBoard.map(innerArray => [...innerArray])];
-            newBoard[rowIndex][colIndex] = "X";
+            newBoard[rowIndex][colIndex] = player;
             return newBoard;
         });
+        togglePlayer();
     }
 
     return (
