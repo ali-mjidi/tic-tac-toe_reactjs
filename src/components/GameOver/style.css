@@ -1,0 +1,72 @@
+.gameOver {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background-color: #000a;
+}
+
+.gameOver__wrapper {
+    width: 40%;
+    aspect-ratio: 1/0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    border-radius: 1rem;
+    border: 1px solid;
+    animation: 1s infinite alternate shine;
+    backdrop-filter: blur(1rem);
+    z-index: inherit;
+}
+
+.gameOver__header {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 5rem;
+}
+
+.gameOver__result {
+    font-size: 2rem;
+}
+
+.gameOver__resetBtn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #fffa;
+    box-shadow: 0 0 20px 0 #fff5;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gameOver__resetBtn:hover {
+    color: black;
+    background-color: white;
+}
+
+.gameOver__background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: red;
+}
+
+@keyframes shine {
+    0% {
+        border-color: #fff5;
+        box-shadow: 0 0 15px 0 #fff5;
+    }
+
+    100% {
+        border-color: #ffff;
+        box-shadow: 0 0 25px 5px #fff5;
+    }
+}

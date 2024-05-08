@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import GameBoard from "./components/GameBoard/GameBoard";
 import Player from "./components/Player/Player";
+import GameOver from "./components/GameOver/GameOver";
 
 import { WINNING_CONDITIONS } from "./winning_conditions";
 import "./App.css";
@@ -59,7 +60,7 @@ function App() {
     }
 
     if (winner || isDraw) {
-        alert(winner);
+        // alert(winner);
     }
 
     return (
@@ -67,6 +68,7 @@ function App() {
             <Header onReset={resetHandler} />
 
             <GameBoard gameLogs={logs} changeLogs={setLogs} gameBoard={gameBoard} />
+            <GameOver />
 
             <footer className="playersInfo">
                 <Player symbol="X" isActive={activePlayer === "X"}>
