@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import Header from "./components/Header/Header";
-import GameBoard from "./components/GameBoard/GameBoard";
-import Player from "./components/Player/Player";
-import GameOver from "./components/GameOver/GameOver";
+import Header from "./components/Header/Header.jsx";
+import GameBoard from "./components/GameBoard/GameBoard.jsx";
+import Player from "./components/Player/Player.jsx";
+import GameOver from "./components/GameOver/GameOver.jsx";
 
-import { WINNING_CONDITIONS } from "./winning_conditions";
+import { WINNING_CONDITIONS } from "./winning_conditions.js";
 import "./App.css";
 
 const PLAYERS = {
