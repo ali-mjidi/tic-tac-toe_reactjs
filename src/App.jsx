@@ -15,7 +15,7 @@ const initialBoard = [
 ];
 
 function deriveActivePlayer(logs) {
-    const activePlayer = logs.length > 0 && logs[0].player === "X" ? "O" : "X";
+    const activePlayer = logs.length && logs[0].player === "X" ? "O" : "X";
 
     return activePlayer;
 }
@@ -59,16 +59,25 @@ function App() {
         setLogs([]);
     }
 
-    if (winner || isDraw) {
-        // alert(winner);
+    function squareHandler(rowIndex, colIndex) {
+        setLogs(oldLogs => {
+            const currentPlayer = deriveActivePlayer(oldLogs);
+
+            const newLog = [
+                { player: currentPlayer, square: { row: rowIndex, col: colIndex } },
+                ...oldLogs,
+            ];
+
+            return newLog;
+        });
     }
 
     return (
         <>
             <Header onReset={resetHandler} />
 
-            <GameBoard gameLogs={logs} changeLogs={setLogs} gameBoard={gameBoard} />
-            <GameOver />
+            <GameBoard onSelect={squareHandler} gameBoard={gameBoard} />
+            {(winner || isDraw) && <GameOver winner={winner} resetFunction={resetHandler} />}
 
             <footer className="playersInfo">
                 <Player symbol="X" isActive={activePlayer === "X"}>

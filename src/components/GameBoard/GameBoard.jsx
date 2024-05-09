@@ -1,21 +1,6 @@
 import "./style.css";
 
-function GameBoard({ gameLogs, changeLogs, gameBoard }) {
-    let player = gameLogs[0]?.player || "X";
-
-    function togglePlayer() {
-        player = player === "X" ? "O" : "X";
-    }
-
-    function squareHandler(rowIndex, colIndex) {
-        changeLogs(oldLogs => {
-            const newLog = [{ player, square: { row: rowIndex, col: colIndex } }, ...oldLogs];
-            return newLog;
-        });
-
-        togglePlayer();
-    }
-
+function GameBoard({ onSelect, gameBoard }) {
     return (
         <div className="gameBoard">
             <ol className="row">
@@ -26,7 +11,7 @@ function GameBoard({ gameLogs, changeLogs, gameBoard }) {
                                 <li key={colIndex}>
                                     <button
                                         className={`square ${col || ""}`}
-                                        onClick={() => squareHandler(rowIndex, colIndex)}
+                                        onClick={() => onSelect(rowIndex, colIndex)}
                                         disabled={Boolean(col)}>
                                         {col}
                                     </button>
