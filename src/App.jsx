@@ -8,7 +8,11 @@ import GameOver from "./components/GameOver/GameOver";
 import { WINNING_CONDITIONS } from "./winning_conditions";
 import "./App.css";
 
-const initialBoard = [
+const PLAYERS = {
+    X: "Player 1",
+    O: "Player 2",
+};
+const INITIAL_BOARD = [
     [null, null, null],
     [null, null, null],
     [null, null, null],
@@ -33,30 +37,35 @@ function updateBoard(gameLogs, gameBoard) {
     return gameBoard;
 }
 
-function checkWinner(board) {
+function checkWinner(board, players) {
     for (const condition of WINNING_CONDITIONS) {
         const firstSquare = board[condition[0].row][condition[0].column];
         const secondSquare = board[condition[1].row][condition[1].column];
         const thirdSquare = board[condition[2].row][condition[2].column];
 
         if (firstSquare && firstSquare === secondSquare && firstSquare === thirdSquare) {
-            return firstSquare;
+            return players[firstSquare];
         }
     }
 }
 
 function App() {
+    const [players, setPlayers] = useState(PLAYERS);
     const [logs, setLogs] = useState([]);
     const activePlayer = deriveActivePlayer(logs);
-    let gameBoard = [...initialBoard.map(innerArray => [...innerArray])];
+    let gameBoard = [...INITIAL_BOARD.map(innerArray => [...innerArray])];
     let winner = undefined;
     let isDraw = logs.length === 9 && !winner;
 
     gameBoard = updateBoard(logs, gameBoard);
-    winner = checkWinner(gameBoard);
+    winner = checkWinner(gameBoard, players);
 
     function resetHandler() {
         setLogs([]);
+    }
+
+    function changeNameHandler(newName, symbol) {
+        setPlayers(oldPlayers => ({ ...oldPlayers, [symbol]: newName }));
     }
 
     function squareHandler(rowIndex, colIndex) {
@@ -80,11 +89,11 @@ function App() {
             {(winner || isDraw) && <GameOver winner={winner} resetFunction={resetHandler} />}
 
             <footer className="playersInfo">
-                <Player symbol="X" isActive={activePlayer === "X"}>
-                    Player 1
+                <Player symbol="X" isActive={activePlayer === "X"} onChangeName={changeNameHandler}>
+                    {players.X}
                 </Player>
-                <Player symbol="O" isActive={activePlayer === "O"}>
-                    Player 2
+                <Player symbol="O" isActive={activePlayer === "O"} onChangeName={changeNameHandler}>
+                    {players.O}
                 </Player>
             </footer>
         </>

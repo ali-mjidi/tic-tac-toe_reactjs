@@ -4,7 +4,7 @@ import editIcon from "./../../assets/icons/edit.png";
 import checkIcon from "./../../assets/icons/check.png";
 import "./style.css";
 
-function Player({ children: initialName, symbol, isActive }) {
+function Player({ children: initialName, symbol, isActive, onChangeName }) {
     const [playerName, setPlayerName] = useState(initialName);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -14,6 +14,10 @@ function Player({ children: initialName, symbol, isActive }) {
 
     function toggleIsEditing() {
         setIsEditing(wasEditing => !wasEditing);
+
+        if (isEditing) {
+            onChangeName(playerName, symbol);
+        }
     }
 
     function submitHandler(e) {
